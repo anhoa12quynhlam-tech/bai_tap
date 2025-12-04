@@ -1,11 +1,9 @@
-// Kiểm tra login khi load trang
-//window.onload = function () {
+// Check login trước khi hiển thị
 if (localStorage.getItem("isLoggedIn") !== "true") {
-  //alert("Bạn chưa đăng nhập!");
   window.location.href = "./login.html";
-  //return;
+} else {
+  document.body.style.display = "block"; // show page nếu đã login
 }
-//};
 
 // Logout
 document.getElementById("btnLogout").addEventListener("click", function () {
