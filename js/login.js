@@ -1,16 +1,20 @@
-// Event: sự kiện. Trường hợp này là sự kiện click
-// Event Listener: lắng nghe sự kiện
+// Xử lý login
+document.getElementById("btnLogin").addEventListener("click", function () {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
 
-let btnLogin = document.getElementById("btnLogin");
-
-btnLogin.addEventListener("click", function () {
-  let username = document.getElementById("txtUsername").value.trim();
-  let password = document.getElementById("txtPassword").value.trim();
-
-  if (username === "admin" && password === "123456") {
-    // alert("Bạn đăng nhập thành công!");
+  // Demo login: admin / 123
+  if (user === "admin" && pass === "123") {
+    localStorage.setItem("isLoggedIn", "true");
     window.location.href = "./admin.html";
   } else {
-    alert("Bạn đăng nhập thất bại! Vui lòng đăng nhập lại.");
+    alert("Tên đăng nhập hoặc mật khẩu không đúng!");
   }
 });
+
+// Nếu đã login → redirect thẳng sang admin
+window.onload = function () {
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    window.location.href = "./admin.html";
+  }
+};
