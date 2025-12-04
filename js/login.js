@@ -4,7 +4,7 @@ document.getElementById("btnLogin").addEventListener("click", function () {
   const pass = document.getElementById("password").value;
 
   // Demo login: admin / 123
-  if (user === "admin" && pass === "123") {
+  if (user === "admin" && pass === "123456") {
     localStorage.setItem("isLoggedIn", "true");
     window.location.href = "./admin.html";
   } else {
